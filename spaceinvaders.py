@@ -49,12 +49,12 @@ class Ship(sprite.Sprite):
 				self.speed = 5
 
 		#for user play
-		# def update(self, keys, *args):
-		# 		if keys[K_LEFT] and self.rect.x > 10:
-		# 			self.rect.x -= self.speed
-		# 		if keys[K_RIGHT] and self.rect.x < 740:
-		# 			self.rect.x += self.speed
-		# 		game.screen.blit(self.image, self.rect)
+		def update(self, keys, *args):
+				if keys[K_LEFT] and self.rect.x > 10:
+					self.rect.x -= self.speed
+				if keys[K_RIGHT] and self.rect.x < 740:
+					self.rect.x += self.speed
+				game.screen.blit(self.image, self.rect)
 
 		# required update method for AI agent
 		def update(self, action, *args):
@@ -82,8 +82,7 @@ class Ship(sprite.Sprite):
 				# 			self.bullets.add(rightbullet)
 				# 			self.allSprites.add(self.bullets)
 				# 			self.sounds['shoot2'].play()
-				game.screen.blit(self.image, self.rect)
-
+				game.screen.blit()
 
 class Bullet(sprite.Sprite):
 		def __init__(self, xpos, ypos, direction, speed, filename, side):
@@ -391,7 +390,7 @@ class SpaceInvaders(object):
 				self.screen = SCREEN
 				self.background = image.load(IMAGE_PATH + 'background.jpg').convert()
 				self.startGame = False
-				self.mainScreen = True
+				self.mainScreen = False
 				self.gameOver = False
 				# Counter for enemy starting position (increased each new round)
 				self.enemyPosition = ENEMY_DEFAULT_POSITION
@@ -622,20 +621,15 @@ class SpaceInvaders(object):
 
 				for e in event.get():
 						if self.should_exit(e):
-								sys.exit()
+							sys.exit()
 
 		#grab current frame. To be used by neural net
 		def getPresentFrame(self):
-				screen = SCREEN
-
 				#for each frame, calls the event queue, like if the main window needs to be repainted
 				pg.event.pump()
-				#make the background black
-				screen.fill(BLACK)
-				#draw our ship, aliens, blockers
-				currentTime = time.get_ticks()
+
+				#init game screen. Draw our pygame objects- ship, aliens, blockers
 				self.__init__()
-				# self.create_new_ship(self.makeNewShip, currentTime)
 
 				#simulate space key press event to start the game
 				tm.sleep(4)
@@ -650,87 +644,33 @@ class SpaceInvaders(object):
 				#return our surface data
 				return image_data
 
+
 		# 	update our screen after an action- left|right|shoot|stay
 		def getNextFrame(self, action, infos):
-				pg.event.pump()
-				score = 0
-				screen = SCREEN
-				screen.fill( pg.image.load(IMAGE_PATH + 'background.jpg').convert())
-				#update our ship
-				while True:
-					if self.mainScreen:
-						self.screen.blit(self.background, (0, 0))
-						self.titleText.draw(self.screen)
-						self.titleText2.draw(self.screen)
-						self.enemy1Text.draw(self.screen)
-						self.enemy2Text.draw(self.screen)
-						self.enemy3Text.draw(self.screen)
-						self.enemy4Text.draw(self.screen)
-						self.create_main_menu()
-						for e in event.get():
-							if self.should_exit(e):
-								sys.exit()
-							if e.type == KEYUP:
-								# Only create blockers on a new game, not a new round
-								self.allBlockers = sprite.Group(self.make_blockers(0),
-																								self.make_blockers(1),
-																								self.make_blockers(2),
-																								self.make_blockers(3))
-								self.livesGroup.add(self.life1, self.life2, self.life3)
-								self.reset(0)
-								self.startGame = True
-								self.mainScreen = False
+			score = 0
+			pg.event.pump()
 
-					elif self.startGame:
-						if not self.enemies and not self.explosionsGroup:
-							currentTime = time.get_ticks()
-							if currentTime - self.gameTimer < 3000:
-								self.screen.blit(self.background, (0, 0))
-								self.scoreText2 = Text(FONT, 20, str(self.score), GREEN, 85, 5)
-								self.scoreText.draw(self.screen)
-								self.scoreText2.draw(self.screen)
-								self.nextRoundText.draw(self.screen)
-								self.livesText.draw(self.screen)
-								self.livesGroup.update()
-								self.check_input()
-							if currentTime - self.gameTimer > 3000:
-								# Move enemies closer to bottom
-								self.enemyPosition += ENEMY_MOVE_DOWN
-								self.reset(self.score)
-								self.gameTimer += 3000
-						else:
-							currentTime = time.get_ticks()
-							self.play_main_music(currentTime)
-							self.screen.blit(self.background, (0, 0))
-							self.allBlockers.update(self.screen)
-							self.scoreText2 = Text(FONT, 20, str(self.score), GREEN, 85, 5)
-							self.scoreText.draw(self.screen)
-							self.scoreText2.draw(self.screen)
-							self.livesText.draw(self.screen)
-							self.check_input()
-							self.enemies.update(currentTime)
-							self.allSprites.update(self.keys, currentTime)
-							self.explosionsGroup.update(currentTime)
-							self.check_collisions()
-							self.create_new_ship(self.makeNewShip, currentTime)
-							self.make_enemies_shoot()
+			#init game screen. Draw our pygame objects- ship, aliens, blockers
+			self.__init__()
 
-				display.update()
-				self.clock.tick(60)
+			#update ship
+			#update enemyGroup
+			#update bullets
 
-				#get the surface data
-				image_data = pg.surfarray.array3d(pg.display.get_surface())
-				game.calculate_score()
-		# 		drawScore(self.tally)
-		# 		drawInfos(infos, action)
+			#get the surface data
+			image_data = pygame.surfarray.array3d(pygame.display.get_surface())
 
-				#update the window
-				pg.display.flip()
-		# 		#record the total score
-		# 		self.tally = self.tally + score
-		#
-				#return the score and the surface data. To be fed into Neural network.
-				return [score, image_data]
+
+			drawInfos(infos, action)
+
+			#update the window
+			pygame.display.flip()
+
+			#record the total score
+			self.tally = self.tally + score
+
+			return [score, image_data]
+
 
 		def main(self):
 				while True:
@@ -742,7 +682,7 @@ class SpaceInvaders(object):
 								self.enemy2Text.draw(self.screen)
 								self.enemy3Text.draw(self.screen)
 								self.enemy4Text.draw(self.screen)
-								self.create_main_menu()
+								# self.create_main_menu()
 								for e in event.get():
 										if self.should_exit(e):
 												sys.exit()
