@@ -19,7 +19,7 @@ FINAL_EPSILON = 0.05
 #how many frames to anneal epsilon
 EXPLORE = 10000
 OBSERVE = 1000
-USE_MODEL = True
+USE_MODEL = False
 
 SAVE_STEP = 5000
 #store our experiences, the size of it
