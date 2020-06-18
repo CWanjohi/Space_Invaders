@@ -12,10 +12,12 @@ tf.disable_v2_behavior()
 #hyper parameters
 ACTIONS = 4 #stay, shoot, left, right
 #define our learning rate
+LEARNING_RATE = 0.00025
 GAMMA = 0.99
 #for updating our gradient or training over time
 INITIAL_EPSILON = 1.0
-FINAL_EPSILON = 0.05
+FINAL_EPSILON = 0.01
+EPSILON_STEP_NUM = 1000000 # Number of frames to get from the initial to final value of epsilon
 #how many frames to anneal epsilon
 EXPLORE = 10000
 OBSERVE = 1000

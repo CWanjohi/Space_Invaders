@@ -49,40 +49,40 @@ class Ship(sprite.Sprite):
 				self.speed = 5
 
 		#for user play
-		# def update(self, keys, *args):
-		# 		if keys[K_LEFT] and self.rect.x > 10:
-		# 			self.rect.x -= self.speed
-		# 		if keys[K_RIGHT] and self.rect.x < 740:
-		# 			self.rect.x += self.speed
-		# 		game.screen.blit(self.image, self.rect)
+		def update(self, keys, *args):
+				if keys[K_LEFT] and self.rect.x > 10:
+					self.rect.x -= self.speed
+				if keys[K_RIGHT] and self.rect.x < 740:
+					self.rect.x += self.speed
+				game.screen.blit(self.image, self.rect)
 
 		# required update method for AI agent
-		def update(self, action, *args):
-				if action[2] == 1 and self.rect.x > 10: #move left.
-						self.rect.x -= self.speed
-				if action[3] == 1 and self.rect.x < 740: #move right.
-						self.rect.x += self.speed
-				# if action[1] == 1: #shoot (action 1)
-				# 	if len(Bullet.bullets) == 0 and self.shipAlive:
-				# 		if score < 1000:
-				# 			bullet = Bullet(self.player.rect.x + 23,
-				# 											self.player.rect.y + 5, -1,
-				# 											15, 'laser', 'center')
-				# 			self.bullets.add(bullet)
-				# 			self.allSprites.add(self.bullets)
-				# 			self.sounds['shoot'].play()
-				# 		else:
-				# 			leftbullet = Bullet(self.player.rect.x + 8,
-				# 													self.player.rect.y + 5, -1,
-				# 													15, 'laser', 'left')
-				# 			rightbullet = Bullet(self.player.rect.x + 38,
-				# 													 self.player.rect.y + 5, -1,
-				# 													 15, 'laser', 'right')
-				# 			self.bullets.add(leftbullet)
-				# 			self.bullets.add(rightbullet)
-				# 			self.allSprites.add(self.bullets)
-				# 			self.sounds['shoot2'].play()
-				game.screen.blit(self.image, self.rect)
+		# def update(self, action, *args):
+		# 		if action[2] == 1 and self.rect.x > 10: #move left.
+		# 				self.rect.x -= self.speed
+		# 		if action[3] == 1 and self.rect.x < 740: #move right.
+		# 				self.rect.x += self.speed
+		# 		# if action[1] == 1: #shoot (action 1)
+		# 		# 	if len(Bullet.bullets) == 0 and self.shipAlive:
+		# 		# 		if score < 1000:
+		# 		# 			bullet = Bullet(self.player.rect.x + 23,
+		# 		# 											self.player.rect.y + 5, -1,
+		# 		# 											15, 'laser', 'center')
+		# 		# 			self.bullets.add(bullet)
+		# 		# 			self.allSprites.add(self.bullets)
+		# 		# 			self.sounds['shoot'].play()
+		# 		# 		else:
+		# 		# 			leftbullet = Bullet(self.player.rect.x + 8,
+		# 		# 													self.player.rect.y + 5, -1,
+		# 		# 													15, 'laser', 'left')
+		# 		# 			rightbullet = Bullet(self.player.rect.x + 38,
+		# 		# 													 self.player.rect.y + 5, -1,
+		# 		# 													 15, 'laser', 'right')
+		# 		# 			self.bullets.add(leftbullet)
+		# 		# 			self.bullets.add(rightbullet)
+		# 		# 			self.allSprites.add(self.bullets)
+		# 		# 			self.sounds['shoot2'].play()
+		# 		game.screen.blit(self.image, self.rect)
 
 
 class Bullet(sprite.Sprite):
@@ -802,9 +802,9 @@ class SpaceInvaders(object):
 
 						# run AI agent.
 						# #input layer and output layer by creating graph
-						inp, out = RL.createGraph()
+						# inp, out = RL.createGraph()
 						# #train our graph on input and output with session variables
-						RL.trainGraph(inp, out)
+						# RL.trainGraph(inp, out)
 
 						display.update()
 						self.clock.tick(60)
