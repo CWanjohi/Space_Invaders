@@ -654,86 +654,78 @@ class SpaceInvaders(object):
 		def getNextFrame(self, action, infos):
 				pg.event.pump()
 				score = 0
-				screen = SCREEN
-				screen.fill( pg.image.load(IMAGE_PATH + 'background.jpg').convert())
-				#update our ship
+				# SCREEN.fill(pg.image.load(SpaceInvaders().background))
+				SCREEN.fill(BLACK)
+				#update our ship, enemygroup
 				while True:
-					if self.mainScreen:
-						self.screen.blit(self.background, (0, 0))
-						self.titleText.draw(self.screen)
-						self.titleText2.draw(self.screen)
-						self.enemy1Text.draw(self.screen)
-						self.enemy2Text.draw(self.screen)
-						self.enemy3Text.draw(self.screen)
-						self.enemy4Text.draw(self.screen)
-						self.create_main_menu()
+					if SpaceInvaders().mainScreen:
+						SpaceInvaders().screen.blit(SpaceInvaders().background, (0, 0))
+						SpaceInvaders().titleText.draw(SpaceInvaders().screen)
+						SpaceInvaders().titleText2.draw(SpaceInvaders().screen)
+						SpaceInvaders().enemy1Text.draw(SpaceInvaders().screen)
+						SpaceInvaders().enemy2Text.draw(SpaceInvaders().screen)
+						SpaceInvaders().enemy3Text.draw(SpaceInvaders().screen)
+						SpaceInvaders().enemy4Text.draw(SpaceInvaders().screen)
+						SpaceInvaders().create_main_menu()
 						for e in event.get():
-							if self.should_exit(e):
+							if SpaceInvaders().should_exit(e):
 								sys.exit()
 							if e.type == KEYUP:
 								# Only create blockers on a new game, not a new round
-								self.allBlockers = sprite.Group(self.make_blockers(0),
-																								self.make_blockers(1),
-																								self.make_blockers(2),
-																								self.make_blockers(3))
-								self.livesGroup.add(self.life1, self.life2, self.life3)
-								self.reset(0)
-								self.startGame = True
-								self.mainScreen = False
+								SpaceInvaders().allBlockers = sprite.Group(SpaceInvaders().make_blockers(0),
+																													 SpaceInvaders().make_blockers(1),
+																													 SpaceInvaders().make_blockers(2),
+																													 SpaceInvaders().make_blockers(3))
+								SpaceInvaders().livesGroup.add(SpaceInvaders().life1, SpaceInvaders().life2, SpaceInvaders().life3)
+								SpaceInvaders().reset(0)
+								SpaceInvaders().startGame = True
+								SpaceInvaders().mainScreen = False
 
-					elif self.startGame:
-						if not self.enemies and not self.explosionsGroup:
+					elif SpaceInvaders().startGame:
+						if not SpaceInvaders().enemies and not SpaceInvaders().explosionsGroup:
 							currentTime = time.get_ticks()
-							if currentTime - self.gameTimer < 3000:
-								self.screen.blit(self.background, (0, 0))
-								self.scoreText2 = Text(FONT, 20, str(self.score), GREEN, 85, 5)
-								self.scoreText.draw(self.screen)
-								self.scoreText2.draw(self.screen)
-								self.nextRoundText.draw(self.screen)
-								self.livesText.draw(self.screen)
-								self.livesGroup.update()
-								self.check_input()
-							if currentTime - self.gameTimer > 3000:
+							if currentTime - SpaceInvaders().gameTimer < 3000:
+								SpaceInvaders().screen.blit(SpaceInvaders().background, (0, 0))
+								SpaceInvaders().scoreText2 = Text(FONT, 20, str(SpaceInvaders().score), GREEN, 85, 5)
+								SpaceInvaders().scoreText.draw(SpaceInvaders().screen)
+								SpaceInvaders().scoreText2.draw(SpaceInvaders().screen)
+								SpaceInvaders().nextRoundText.draw(SpaceInvaders().screen)
+								SpaceInvaders().livesText.draw(SpaceInvaders().screen)
+								SpaceInvaders().livesGroup.update()
+								SpaceInvaders().check_input()
+							if currentTime - SpaceInvaders().gameTimer > 3000:
 								# Move enemies closer to bottom
-								self.enemyPosition += ENEMY_MOVE_DOWN
-								self.reset(self.score)
-								self.gameTimer += 3000
+								SpaceInvaders().enemyPosition += ENEMY_MOVE_DOWN
+								SpaceInvaders().reset(SpaceInvaders().score)
+								SpaceInvaders().gameTimer += 3000
 						else:
 							currentTime = time.get_ticks()
-							self.play_main_music(currentTime)
-							self.screen.blit(self.background, (0, 0))
-							self.allBlockers.update(self.screen)
-							self.scoreText2 = Text(FONT, 20, str(self.score), GREEN, 85, 5)
-							self.scoreText.draw(self.screen)
-							self.scoreText2.draw(self.screen)
-							self.livesText.draw(self.screen)
-							self.check_input()
-							self.enemies.update(currentTime)
-							self.allSprites.update(self.keys, currentTime)
-							self.explosionsGroup.update(currentTime)
-							self.check_collisions()
-							self.create_new_ship(self.makeNewShip, currentTime)
-							self.make_enemies_shoot()
-
-				display.update()
-				self.clock.tick(60)
+							SpaceInvaders().play_main_music(currentTime)
+							SpaceInvaders().screen.blit(SpaceInvaders().background, (0, 0))
+							SpaceInvaders().allBlockers.update(SpaceInvaders().screen)
+							SpaceInvaders().scoreText2 = Text(FONT, 20, str(SpaceInvaders().score), GREEN, 85, 5)
+							SpaceInvaders().scoreText.draw(SpaceInvaders().screen)
+							SpaceInvaders().scoreText2.draw(SpaceInvaders().screen)
+							SpaceInvaders().livesText.draw(SpaceInvaders().screen)
+							SpaceInvaders().check_input()
+							SpaceInvaders().enemies.update(currentTime)
+							SpaceInvaders().allSprites.update(SpaceInvaders().keys, currentTime)
+							SpaceInvaders().explosionsGroup.update(currentTime)
+							SpaceInvaders().check_collisions()
+							SpaceInvaders().create_new_ship(SpaceInvaders().makeNewShip, currentTime)
+							SpaceInvaders().make_enemies_shoot()
 
 				#get the surface data
-				image_data = pg.surfarray.array3d(pg.display.get_surface())
-				game.calculate_score()
-		# 		drawScore(self.tally)
-		# 		drawInfos(infos, action)
+					image_data = surfarray.array3d(pygame.display.get_surface())
 
-				#update the window
-				pg.display.flip()
-		# 		#record the total score
-		# 		self.tally = self.tally + score
-		#
-				#return the score and the surface data. To be fed into Neural network.
-				return [score, image_data]
+					#update the window
+					pg.display.flip()
+
+					return [score, image_data]
 
 		def main(self):
 				while True:
+						pg.init()
 						if self.mainScreen:
 								self.screen.blit(self.background, (0, 0))
 								self.titleText.draw(self.screen)

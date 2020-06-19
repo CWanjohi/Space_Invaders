@@ -21,7 +21,7 @@ EPSILON_STEP_NUM = 1000000 # Number of frames to get from the initial to final v
 #how many frames to anneal epsilon
 EXPLORE = 10000
 OBSERVE = 1000
-USE_MODEL = True
+USE_MODEL = False
 
 SAVE_STEP = 5000
 #store our experiences, the size of it

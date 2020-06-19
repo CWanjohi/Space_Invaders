@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="b5e9caa2-fcd6-450b-a44e-19e9d73255b0" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spaceinvaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaceinvaders.py" afterDir="false" />
+    </list>
+>>>>>>> eb3c5d7a8bcfd7dc29525b01c31a26e496cdc0a7
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Space_Invaders" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZA975QmLiYzKa6j0OTxphgHhX5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project-3-python-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dinoAI" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -91,6 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584270861596</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00001" summary="updated RL.py">
       <created>1592481587778</created>
       <option name="number" value="00001" />
@@ -106,6 +123,30 @@
       <updated>1592481932287</updated>
     </task>
     <option name="localTasksCounter" value="3" />
+=======
+    <task id="LOCAL-00001" summary="renamed text file">
+      <created>1592207045952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592207045952</updated>
+    </task>
+    <task id="LOCAL-00002" summary="renamed text file">
+      <created>1592207073637</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592207073637</updated>
+    </task>
+    <task id="LOCAL-00003" summary="changed workspace.xml">
+      <created>1592207103307</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592207103307</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+>>>>>>> eb3c5d7a8bcfd7dc29525b01c31a26e496cdc0a7
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,8 +163,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <MESSAGE value="updated RL.py" />
     <MESSAGE value="added background img file" />
     <option name="LAST_COMMIT_MESSAGE" value="added background img file" />
+=======
+    <MESSAGE value="renamed text file" />
+    <MESSAGE value="changed workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed workspace.xml" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/spaceinvaders.py</url>
+          <line>723</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+>>>>>>> eb3c5d7a8bcfd7dc29525b01c31a26e496cdc0a7
   </component>
 </project>
