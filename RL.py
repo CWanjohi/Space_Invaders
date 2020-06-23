@@ -10,22 +10,21 @@ from numpy.random import choice
 tf.disable_v2_behavior()
 
 #hyper parameters
-ACTIONS = 4 #stay, shoot, left, right
+ACTIONS = 4 #stay-action[0], shoot-action[1], left-action[2], right-action[3]
 #define our learning rate
 GAMMA = 0.99
 #for updating our gradient or training over time
 INITIAL_EPSILON = 1.0
-FINAL_EPSILON = 0.05
+FINAL_EPSILON = 0.01
 #how many frames to anneal epsilon
 EXPLORE = 10000
 OBSERVE = 1000
 USE_MODEL = False
 
-SAVE_STEP = 5000
-#store our experiences, the size of it
+SAVE_STEP = 5000 #store our experience after every 5000 steps
 REPLAY_MEMORY = 200000
 #batch size to train on
-BATCH = 50
+BATCH = 80 #randomly select a batch of 80 to train on from the replay memory
 
 #create tensorflow graph
 def createGraph():

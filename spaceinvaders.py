@@ -8,6 +8,9 @@ import keyboard
 from pygame import *
 import pygame as pg
 import RL
+import sys
+
+pg.init()
 
 BASE_PATH = os.path.abspath(os.path.dirname(__file__))
 FONT_PATH = BASE_PATH + '/fonts/'
@@ -48,40 +51,12 @@ class Ship(sprite.Sprite):
 				self.rect = self.image.get_rect(topleft=(375, 540))
 				self.speed = 5
 
-		#for user play
-		# def update(self, keys, *args):
-		# 		if keys[K_LEFT] and self.rect.x > 10:
-		# 			self.rect.x -= self.speed
-		# 		if keys[K_RIGHT] and self.rect.x < 740:
-		# 			self.rect.x += self.speed
-		# 		game.screen.blit(self.image, self.rect)
-
-		# required update method for AI agent
+		#updates/moves ship according to action selected by AI agent
 		def update(self, action, *args):
 				if action[2] == 1 and self.rect.x > 10: #move left.
 						self.rect.x -= self.speed
 				if action[3] == 1 and self.rect.x < 740: #move right.
 						self.rect.x += self.speed
-				# if action[1] == 1: #shoot (action 1)
-				# 	if len(Bullet.bullets) == 0 and self.shipAlive:
-				# 		if score < 1000:
-				# 			bullet = Bullet(self.player.rect.x + 23,
-				# 											self.player.rect.y + 5, -1,
-				# 											15, 'laser', 'center')
-				# 			self.bullets.add(bullet)
-				# 			self.allSprites.add(self.bullets)
-				# 			self.sounds['shoot'].play()
-				# 		else:
-				# 			leftbullet = Bullet(self.player.rect.x + 8,
-				# 													self.player.rect.y + 5, -1,
-				# 													15, 'laser', 'left')
-				# 			rightbullet = Bullet(self.player.rect.x + 38,
-				# 													 self.player.rect.y + 5, -1,
-				# 													 15, 'laser', 'right')
-				# 			self.bullets.add(leftbullet)
-				# 			self.bullets.add(rightbullet)
-				# 			self.allSprites.add(self.bullets)
-				# 			self.sounds['shoot2'].play()
 				game.screen.blit(self.image, self.rect)
 
 
@@ -149,7 +124,8 @@ class EnemiesGroup(sprite.Group):
 				self.leftMoves = 30
 				self.moveNumber = 15
 				self.timer = time.get_ticks()
-				self.bottom = game.enemyPosition + ((rows - 1) * 45) + 35
+				# self.bottom = game.enemyPosition + ((rows - 1) * 45) + 35
+				self.bottom = 280
 				self._aliveColumns = list(range(columns))
 				self._leftAliveColumn = 0
 				self._rightAliveColumn = columns - 1
@@ -358,7 +334,7 @@ class Text(object):
 
 		def drawInfos(infos, action):
 				screen = SCREEN
-				font = pygame.font.Font(None, 15)
+				font = pg.font.Font(None, 15)
 				label = font.render("Step: " + str(infos[0]) + " ["+str(infos[3])+"]", 1, WHITE)
 				screen.blit(label, (30 , 30))
 				label = font.render("Epsilon: " + str(infos[2]), 1, WHITE)
@@ -385,11 +361,12 @@ class SpaceInvaders(object):
 				# It seems, in Linux buffersize=512 is not enough, use 4096 to prevent:
 				#   ALSA lib pcm.c:7963:(snd_pcm_recover) underrun occurred
 				mixer.pre_init(44100, -16, 1, 4096)
+				score = 0
 				init()
 				self.clock = time.Clock()
 				self.caption = display.set_caption('Space Invaders')
 				self.screen = SCREEN
-				self.background = image.load(IMAGE_PATH + 'background.jpg').convert()
+				self.background = SCREEN.fill(BLACK)
 				self.startGame = False
 				self.mainScreen = True
 				self.gameOver = False
@@ -474,33 +451,32 @@ class SpaceInvaders(object):
 				# type: (pygame.event.EventType) -> bool
 				return evt.type == QUIT or (evt.type == KEYUP and evt.key == K_ESCAPE)
 
-		def check_input(self):
+		def check_input(self, action, *args):
 				self.keys = key.get_pressed()
 				for e in event.get():
 						if self.should_exit(e):
 								sys.exit()
-						if e.type == KEYDOWN:
-								if e.key == K_SPACE: #shoot (action 1)
-										if len(self.bullets) == 0 and self.shipAlive:
-												if self.score < 1000:
-														bullet = Bullet(self.player.rect.x + 23,
+						if action[1] == 1: #shoot (action 1)
+								if len(self.bullets) == 0 and self.shipAlive:
+										if self.score < 1000:
+												bullet = Bullet(self.player.rect.x + 23,
+																				self.player.rect.y + 5, -1,
+																				15, 'laser', 'center')
+												self.bullets.add(bullet)
+												self.allSprites.add(self.bullets)
+												self.sounds['shoot'].play()
+										else:
+												leftbullet = Bullet(self.player.rect.x + 8,
 																						self.player.rect.y + 5, -1,
-																						15, 'laser', 'center')
-														self.bullets.add(bullet)
-														self.allSprites.add(self.bullets)
-														self.sounds['shoot'].play()
-												else:
-														leftbullet = Bullet(self.player.rect.x + 8,
-																								self.player.rect.y + 5, -1,
-																								15, 'laser', 'left')
-														rightbullet = Bullet(self.player.rect.x + 38,
-																								 self.player.rect.y + 5, -1,
-																								 15, 'laser', 'right')
-														self.bullets.add(leftbullet)
-														self.bullets.add(rightbullet)
-														self.allSprites.add(self.bullets)
-														self.sounds['shoot2'].play()
-								game.screen.blit(self.image, self.rect)
+																						15, 'laser', 'left')
+												rightbullet = Bullet(self.player.rect.x + 38,
+																						 self.player.rect.y + 5, -1,
+																						 15, 'laser', 'right')
+												self.bullets.add(leftbullet)
+												self.bullets.add(rightbullet)
+												self.allSprites.add(self.bullets)
+												self.sounds['shoot2'].play()
+								game.screen.blit(Ship.image, Ship.rect)
 
 		def make_enemies(self):
 				enemies = EnemiesGroup(10, 5)
@@ -635,11 +611,6 @@ class SpaceInvaders(object):
 				#draw our ship, aliens, blockers
 				currentTime = time.get_ticks()
 				self.__init__()
-				# self.create_new_ship(self.makeNewShip, currentTime)
-
-				#simulate space key press event to start the game
-				tm.sleep(4)
-				keyboard.press_and_release('space')
 
 				#copies the pixels from our surface to a 3D array. we'll use this for RL
 				image_data = pg.surfarray.array3d(pg.display.get_surface())
@@ -659,7 +630,7 @@ class SpaceInvaders(object):
 				#update our ship, enemygroup
 				while True:
 					if SpaceInvaders().mainScreen:
-						SpaceInvaders().screen.blit(SpaceInvaders().background, (0, 0))
+						SpaceInvaders().screen.fill(BLACK)
 						SpaceInvaders().titleText.draw(SpaceInvaders().screen)
 						SpaceInvaders().titleText2.draw(SpaceInvaders().screen)
 						SpaceInvaders().enemy1Text.draw(SpaceInvaders().screen)
@@ -669,7 +640,9 @@ class SpaceInvaders(object):
 						SpaceInvaders().create_main_menu()
 						for e in event.get():
 							if SpaceInvaders().should_exit(e):
-								sys.exit()
+									sys.exit()
+							tm.sleep(2)
+							keyboard.press_and_release('space')
 							if e.type == KEYUP:
 								# Only create blockers on a new game, not a new round
 								SpaceInvaders().allBlockers = sprite.Group(SpaceInvaders().make_blockers(0),
@@ -716,10 +689,13 @@ class SpaceInvaders(object):
 							SpaceInvaders().make_enemies_shoot()
 
 				#get the surface data
-					image_data = surfarray.array3d(pygame.display.get_surface())
-
+					image_data = surfarray.array3d(pg.display.get_surface())
+					#draw score and AI information
+					self.scoreText.draw(self.screen)
+					Text.drawInfos(infos, action)
 					#update the window
 					pg.display.flip()
+					#record total score
 
 					return [score, image_data]
 
@@ -727,7 +703,7 @@ class SpaceInvaders(object):
 				while True:
 						pg.init()
 						if self.mainScreen:
-								self.screen.blit(self.background, (0, 0))
+								self.screen.fill(BLACK)
 								self.titleText.draw(self.screen)
 								self.titleText2.draw(self.screen)
 								self.enemy1Text.draw(self.screen)
@@ -738,6 +714,8 @@ class SpaceInvaders(object):
 								for e in event.get():
 										if self.should_exit(e):
 												sys.exit()
+										tm.sleep(4)
+										keyboard.press_and_release('space')
 										if e.type == KEYUP:
 												# Only create blockers on a new game, not a new round
 												self.allBlockers = sprite.Group(self.make_blockers(0),
@@ -798,7 +776,7 @@ class SpaceInvaders(object):
 						# #train our graph on input and output with session variables
 						RL.trainGraph(inp, out)
 
-						display.update()
+						pg.display.update()
 						self.clock.tick(60)
 
 
