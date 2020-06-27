@@ -754,9 +754,9 @@ class SpaceInvaders(object):
 
 						# run AI agent.
 						# #input layer and output layer by creating graph
-						# inp, out = RL.createGraph()
+						inp, out = RL.createGraph()
 						# #train our graph on input and output with session variables
-						# RL.trainGraph(inp, out)
+						RL.trainGraph(inp, out)
 
 						pg.display.update()
 
