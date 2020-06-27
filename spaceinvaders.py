@@ -62,7 +62,7 @@ class Ship(sprite.Sprite):
 						self.rect.x += self.speed
 				SpaceInvaders().screen.blit(self.image, self.rect)
 
-
+        
 class Bullet(sprite.Sprite):
 		def __init__(self, xpos, ypos, direction, speed, filename, side):
 				sprite.Sprite.__init__(self)
@@ -754,9 +754,9 @@ class SpaceInvaders(object):
 
 						# run AI agent.
 						# #input layer and output layer by creating graph
-						inp, out = RL.createGraph()
+						# inp, out = RL.createGraph()
 						# #train our graph on input and output with session variables
-						RL.trainGraph(inp, out)
+						# RL.trainGraph(inp, out)
 
 						pg.display.update()
 

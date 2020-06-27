@@ -11,6 +11,7 @@ tf.disable_v2_behavior()
 #hyper parameters
 ACTIONS = 4 #stay-action[0], shoot-action[1], left-action[2], right-action[3]
 #define our learning rate
+LEARNING_RATE = 0.00025
 GAMMA = 0.99
 #for updating our gradient or training over time
 INITIAL_EPSILON = 1.0

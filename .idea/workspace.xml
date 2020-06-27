@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Overview Write Up.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Overview Write Up.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceinvaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaceinvaders.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +14,11 @@
     <favorites_list name="Space_Invaders" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="CWanjohi &lt;c10wanjohi@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -135,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592901206978</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="It runs.">
+      <created>1593293722459</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593293722459</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,7 +164,8 @@
     <MESSAGE value="renamed text file" />
     <MESSAGE value="changed workspace.xml" />
     <MESSAGE value="Debugging error: No sprites showing on window" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debugging error: No sprites showing on window" />
+    <MESSAGE value="It runs." />
+    <option name="LAST_COMMIT_MESSAGE" value="It runs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
