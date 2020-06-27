@@ -3,31 +3,28 @@ import cv2 #read in pixel data
 import spaceinvaders #our game class
 import numpy as np #math computation
 import random #random number generator
-import os
 from collections import deque #queue data structure. fast appends. and pops. replay memory
 from numpy.random import choice
 
 tf.disable_v2_behavior()
 
 #hyper parameters
-ACTIONS = 4 #stay, shoot, left, right
+ACTIONS = 4 #stay-action[0], shoot-action[1], left-action[2], right-action[3]
 #define our learning rate
 LEARNING_RATE = 0.00025
 GAMMA = 0.99
 #for updating our gradient or training over time
 INITIAL_EPSILON = 1.0
 FINAL_EPSILON = 0.01
-EPSILON_STEP_NUM = 1000000 # Number of frames to get from the initial to final value of epsilon
 #how many frames to anneal epsilon
 EXPLORE = 10000
 OBSERVE = 1000
 USE_MODEL = False
 
-SAVE_STEP = 5000
-#store our experiences, the size of it
+SAVE_STEP = 5000 #store our experience after every 5000 steps
 REPLAY_MEMORY = 200000
 #batch size to train on
-BATCH = 50
+BATCH = 80 #randomly select a batch of 80 to train on from the replay memory
 
 #create tensorflow graph
 def createGraph():
@@ -193,15 +190,3 @@ def trainGraph(inp, out):
 			saver.save(sess, './checkpoints/model.ckpt', global_step=t)
 
 		print("TIMESTEP", t, "/ EPSILON", epsilon, "/ ACTION", maxIndex, "/ REWARD", reward_t, "/ Q_MAX %e" % np.max(out_t))
-
-
-# def main():
-# 	if not os.path.exists('./checkpoints'):
-# 		os.makedirs('./checkpoints')
-# 	#input layer and output layer by creating graph
-# 	inp, out = createGraph()
-# 	#train our graph on input and output with session variables
-# 	trainGraph(inp, out)
-#
-# if __name__ == "__main__":
-# 	main()

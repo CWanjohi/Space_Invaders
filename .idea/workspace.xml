@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="b5e9caa2-fcd6-450b-a44e-19e9d73255b0" name="Default Changelist" comment="" />
-=======
     <list default="true" id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceinvaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaceinvaders.py" afterDir="false" />
     </list>
->>>>>>> eb3c5d7a8bcfd7dc29525b01c31a26e496cdc0a7
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +14,11 @@
     <favorites_list name="Space_Invaders" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="CWanjohi &lt;c10wanjohi@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -32,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dinoAI" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -96,34 +95,20 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b5e9caa2-fcd6-450b-a44e-19e9d73255b0" name="Default Changelist" comment="" />
+      <changelist id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="" />
       <created>1584270861596</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584270861596</updated>
     </task>
-<<<<<<< HEAD
-    <task id="LOCAL-00001" summary="updated RL.py">
-      <created>1592481587778</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1592481587778</updated>
-    </task>
-    <task id="LOCAL-00002" summary="added background img file">
-      <created>1592481932287</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1592481932287</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
-=======
     <task id="LOCAL-00001" summary="renamed text file">
       <created>1592207045952</created>
       <option name="number" value="00001" />
@@ -145,8 +130,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592207103307</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
->>>>>>> eb3c5d7a8bcfd7dc29525b01c31a26e496cdc0a7
+    <task id="LOCAL-00004" summary="Debugging error: No sprites showing on window">
+      <created>1592901206978</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592901206978</updated>
+    </task>
+    <task id="LOCAL-00005" summary="It runs.">
+      <created>1593293722459</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593293722459</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,24 +161,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-<<<<<<< HEAD
-    <MESSAGE value="updated RL.py" />
-    <MESSAGE value="added background img file" />
-    <option name="LAST_COMMIT_MESSAGE" value="added background img file" />
-=======
     <MESSAGE value="renamed text file" />
     <MESSAGE value="changed workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed workspace.xml" />
+    <MESSAGE value="Debugging error: No sprites showing on window" />
+    <MESSAGE value="It runs." />
+    <option name="LAST_COMMIT_MESSAGE" value="It runs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/spaceinvaders.py</url>
-          <line>723</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -189,6 +177,10 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
->>>>>>> eb3c5d7a8bcfd7dc29525b01c31a26e496cdc0a7
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.startGame" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
