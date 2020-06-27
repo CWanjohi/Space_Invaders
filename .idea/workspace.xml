@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Overview Write Up.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Overview Write Up.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RL.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spaceinvaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaceinvaders.py" afterDir="false" />
     </list>
@@ -28,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dinoAI" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -127,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592207103307</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Debugging error: No sprites showing on window">
+      <created>1592901206978</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592901206978</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,7 +154,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="renamed text file" />
     <MESSAGE value="changed workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed workspace.xml" />
+    <MESSAGE value="Debugging error: No sprites showing on window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging error: No sprites showing on window" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -158,5 +167,10 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.startGame" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

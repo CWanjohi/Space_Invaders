@@ -15,7 +15,7 @@ WRITE UP.
 CNN analyzes present and next frame of the game to make a decision.
 A decision can either be to stay put, shoot, move left or move right. Stay/Do nothing is the most probable decision.
 The AI agent creates a Q-table with column=all possible actions, row=all possible states.
-Each cell of the Q-table is filled with the max reward for doing that action in the given state. Max reward is calculated using Bellman Equation.
+Each cell of the Q-table is filled with the max reward for doing that action in the given state. Max reward is calculated using the Bellman Equation.
 Reward=1 if alien is shot, 0 if ship is killed or no alien is killed. (step function)
 The AI agent fills in the Q-Table accordingly.
 At the start of the game, the AI agent uses an epsilon-greedy technique- random actions.

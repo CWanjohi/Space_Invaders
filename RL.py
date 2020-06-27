@@ -3,7 +3,6 @@ import cv2 #read in pixel data
 import spaceinvaders #our game class
 import numpy as np #math computation
 import random #random number generator
-import os
 from collections import deque #queue data structure. fast appends. and pops. replay memory
 from numpy.random import choice
 
@@ -190,15 +189,3 @@ def trainGraph(inp, out):
 			saver.save(sess, './checkpoints/model.ckpt', global_step=t)
 
 		print("TIMESTEP", t, "/ EPSILON", epsilon, "/ ACTION", maxIndex, "/ REWARD", reward_t, "/ Q_MAX %e" % np.max(out_t))
-
-
-# def main():
-# 	if not os.path.exists('./checkpoints'):
-# 		os.makedirs('./checkpoints')
-# 	#input layer and output layer by creating graph
-# 	inp, out = createGraph()
-# 	#train our graph on input and output with session variables
-# 	trainGraph(inp, out)
-#
-# if __name__ == "__main__":
-# 	main()
