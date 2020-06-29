@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Overview Write Up.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Overview Write Up.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceinvaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/spaceinvaders.py" afterDir="false" />
-    </list>
+    <list default="true" id="065965b5-f0af-4b43-b0a3-cd05f0c59467" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593295152799</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Bug fixes.">
+      <created>1593424582808</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593424582808</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +177,8 @@
     <MESSAGE value="changed workspace.xml" />
     <MESSAGE value="Debugging error: No sprites showing on window" />
     <MESSAGE value="It runs." />
-    <option name="LAST_COMMIT_MESSAGE" value="It runs." />
+    <MESSAGE value="Bug fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
