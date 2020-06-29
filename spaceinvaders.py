@@ -3,14 +3,13 @@
 # Created by Lee Robinson
 import os
 from random import choice
-import keyboard
 from pygame import *
 import pygame as pg
 import RL
 import sys
 from pynput.keyboard import Key, Controller
 
-keyboard1 = Controller()
+keyboard = Controller()
 
 pg.init()
 
@@ -367,7 +366,6 @@ class SpaceInvaders(object):
 				self.clock = time.Clock()
 				self.caption = display.set_caption('Space Invaders')
 				self.screen = SCREEN
-				self.background = image.load(IMAGE_PATH + 'background.jpg').convert()
 				self.startGame = False
 				self.mainScreen = True
 				self.gameOver = False
@@ -515,8 +513,8 @@ class SpaceInvaders(object):
 				self.screen.blit(self.enemy2, (318, 320))
 				self.screen.blit(self.enemy3, (318, 370))
 				self.screen.blit(self.enemy4, (299, 420))
-				keyboard1.press(Key.space)
-				keyboard1.release(Key.space)
+				keyboard.press(Key.space)
+				keyboard.release(Key.space)
 
 
 		def check_collisions(self):
@@ -613,7 +611,6 @@ class SpaceInvaders(object):
 		def getNextFrame(self, action, infos):
 				pg.event.pump()
 				score = 0
-				# SCREEN.fill(pg.image.load(SpaceInvaders().background))
 				self.screen.fill(BLACK)
 				#update our ship, enemygroup
 				while True:
@@ -642,7 +639,7 @@ class SpaceInvaders(object):
 						if not self.enemies and not self.explosionsGroup:
 								currentTime = time.get_ticks()
 								if currentTime - self.gameTimer < 3000:
-										self.screen.blit(self.background, (0, 0))
+										self.screen.fill(BLACK)
 										self.scoreText.draw(self.screen)
 										self.nextRoundText.draw(self.screen)
 										self.livesText.draw(self.screen)
@@ -658,7 +655,7 @@ class SpaceInvaders(object):
 						else:
 								currentTime = time.get_ticks()
 								self.play_main_music(currentTime)
-								self.screen.blit(self.background, (0, 0))
+								self.screen.fill(BLACK)
 								self.allBlockers.update(self.screen)
 								self.scoreText2 = Text(FONT, 20, str(self.score), GREEN, 85, 5)
 								self.scoreText.draw(self.screen)

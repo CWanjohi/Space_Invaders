@@ -18,12 +18,12 @@ INITIAL_EPSILON = 1.0
 FINAL_EPSILON = 0.01
 #how many frames to anneal epsilon
 EXPLORE = 10000
-OBSERVE = 1000
-USE_MODEL = False
+OBSERVE = 500
+USE_MODEL = True
 
 SAVE_STEP = 5000 #store our experience after every 5000 steps
 REPLAY_MEMORY = 200000
-#batch size to train on
+
 BATCH = 80 #randomly select a batch of 80 to train on from the replay memory
 
 #create tensorflow graph
@@ -81,7 +81,7 @@ def trainGraph(inp, out):
 	#initialize our game
 	game = spaceinvaders.SpaceInvaders()
 
-	#create a queue for experience replay to store policies
+	#create a queue to store policies for experience replay
 	D = deque()
 
 	#initial frame
@@ -114,7 +114,7 @@ def trainGraph(inp, out):
 
 	epsilon = INITIAL_EPSILON
 
-	#training time
+	#training
 	while(1):
 		#output tensor
 		out_t = out.eval(feed_dict = {inp : [inp_t]})[0]
