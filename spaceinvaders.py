@@ -31,6 +31,7 @@ WINDOW_HEIGHT = 600
 
 FPS = 60 #frames per second to refresh screen.
 SCREEN = display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+#SCREEN = Surface((WINDOW_WIDTH, WINDOW_HEIGHT))
 FONT = FONT_PATH + 'space_invaders.ttf'
 IMG_NAMES = ['ship', 'mystery',
 						 'enemy1_1', 'enemy1_2',
@@ -374,6 +375,7 @@ class SpaceInvaders(object):
 				self.titleText = Text(FONT, 50, 'Space Invaders', WHITE, 164, 155)
 				self.titleText2 = Text(FONT, 25, 'Press SPACE key to continue', WHITE, 201, 225)
 				self.gameOverText = Text(FONT, 50, 'Game Over', WHITE, 250, 270)
+				self.restartText = Text(FONT, 30, 'Game Restart', WHITE, 250, 330)
 				self.nextRoundText = Text(FONT, 50, 'Next Round', WHITE, 240, 270)
 				self.enemy1Text = Text(FONT, 25, '   =   10 pts', GREEN, 368, 270)
 				self.enemy2Text = Text(FONT, 25, '   =  20 pts', BLUE, 368, 320)
@@ -579,10 +581,16 @@ class SpaceInvaders(object):
 						self.screen.blit(BLACK)
 				elif 1500 < passed < 2250:
 						self.gameOverText.draw(self.screen)
+						self.restartText.draw(self.screen)
 				elif 2250 < passed < 2750:
 						self.screen.blit(BLACK)
 				elif passed > 3000:
 						self.mainScreen = True
+				# restart the game
+				print("Final Score: ", str(game.score))
+				print ('---------------Game Restart---------------')
+				keyboard.press(Key.space)
+				keyboard.release(Key.space)
 
 				for e in event.get():
 						if self.should_exit(e):
