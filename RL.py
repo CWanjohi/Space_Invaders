@@ -11,20 +11,19 @@ tf.disable_v2_behavior()
 #hyper parameters
 ACTIONS = 4 #stay-action[0], shoot-action[1], left-action[2], right-action[3]
 #define our learning rate
-LEARNING_RATE = 0.00025
 GAMMA = 0.99
 #for updating our gradient or training over time
 INITIAL_EPSILON = 1.0
 FINAL_EPSILON = 0.01
 #how many frames to anneal epsilon
 EXPLORE = 10000
-OBSERVE = 500
+OBSERVE = 300
 USE_MODEL = True
 
 SAVE_STEP = 5000 #store our experience after every 5000 steps
 REPLAY_MEMORY = 200000
 
-BATCH = 80 #randomly select a batch of 80 to train on from the replay memory
+BATCH = 100 #randomly select a batch of 100 to train on from the replay memory
 
 #create tensorflow graph
 def createGraph():
@@ -185,8 +184,8 @@ def trainGraph(inp, out):
 		c = c + 1
 
 		#print our where we are after saving where we are
-		if t % SAVE_STEP == 0 and not USE_MODEL:
+		if t % SAVE_STEP == 0 and not USE_MODEL or game.gameOver:
 			sess.run(global_step.assign(t))
 			saver.save(sess, './checkpoints/model.ckpt', global_step=t)
 
-		print("TIMESTEP", t, "/ EPSILON", epsilon, "/ ACTION", maxIndex, "/ REWARD", reward_t, "/ Q_MAX %e" % np.max(out_t))
+		print("TIMESTEP", t, "/ SCORE", str(game.score), "/ EPSILON", epsilon, "/ ACTION", maxIndex, "/ REWARD", reward_t, "/ Q_MAX %e" % np.max(out_t))
