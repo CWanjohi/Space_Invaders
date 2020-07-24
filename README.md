@@ -32,7 +32,7 @@ Some things I have changed from the original sources.
 * pygame
 * pynput
 
-Use [pip](https://pypi.python.org/pypi/pip) to install the dependencies. Tensorflow are more manual thus, the links provided.
+Use [pip](https://pypi.python.org/pypi/pip) to install the dependencies. Tensorflow and Opencv are more manual thus, their respective links are provided.
 
 #### USAGE
 Run the game using the terminal command
