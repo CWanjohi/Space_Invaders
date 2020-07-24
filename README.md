@@ -46,7 +46,7 @@ python spaceinvaders.py
 - Save model experience at gameOver. **IMPORTANT**
 - Keep ship from dying during 'observing' mode. **IMPORTANT**
 - Increase screen size from (WxH) 600x800 to 800x900.
-- Due to performance issues, develop alternative way of running without the pygame GUI window.
+- Upload demo video on README.
 
 #### Credits
 Original code source:
