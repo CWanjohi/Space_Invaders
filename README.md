@@ -21,7 +21,7 @@ Some things I have changed from the original sources.
   But using the original line fired the error ```NameError: name 'game' is not defined```.
 - I was running this on a non-gpu machine.
   To run on a machine with a GPU, uncomment RL.py ```with tf.device('/gpu:0):```
-  Also, import tensorflow-gpu normally i.e ```import tensorflow as tf``` then comment RL.py ```tf.disable_v2_behavior()```
+  Also, import tensorflow normally i.e ```import tensorflow as tf``` then comment the line ```tf.disable_v2_behavior()``` in RL.py
 
 ####Dependencies
 * [tensorflow](https://www.tensorflow.org)
