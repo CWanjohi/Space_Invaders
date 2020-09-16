@@ -1,4 +1,5 @@
-import tensorflow.compat.v1 as tf
+# import tensorflow.compat.v1 as tf
+import tensorflow as tf
 import cv2 #read in pixel data
 import spaceinvaders #our game class
 import numpy as np #math computation
@@ -6,7 +7,7 @@ import random #random number generator
 from collections import deque #queue data structure. fast appends. and pops. replay memory
 from numpy.random import choice
 
-tf.disable_v2_behavior()
+# tf.disable_v2_behavior()
 
 #hyper parameters
 ACTIONS = 4 #stay-action[0], shoot-action[1], left-action[2], right-action[3]
@@ -27,7 +28,7 @@ BATCH = 100 #randomly select a batch of 100 to train on from the replay memory
 
 #create tensorflow graph
 def createGraph():
-	# with tf.device('/gpu:0'):
+	with tf.device('/gpu:0'):
 		#convolutional layers. bias vector
 		#creates an empty tensor with all elements set to zero with a shape
 		W_conv1 = tf.Variable(tf.zeros([6, 6, 4, 32]))
